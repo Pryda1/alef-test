@@ -41,7 +41,6 @@ function Main() {
     setUserName("");
     setUserAge("");
     setChildCount([]);
-    console.log(childCount);
   };
 
   return (
