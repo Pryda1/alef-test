@@ -21,7 +21,7 @@ function Preview() {
         {childsData.length > 0
           ? childsData.map(
               (child) =>
-                child.name && (
+                (child.name !== "" && child.age !== "") && (
                   <div className="preview__child" key={child.id}>
                     {child.name}, {child.age} лет
                   </div>

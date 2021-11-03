@@ -35,11 +35,11 @@ function Main() {
     }
   };
 
-  const saveData = () => {
+  const saveData = async () => {
     if (userName.trim !== "" && userAge.trim !== "") setIsSave(true);
-    setUserData({ name: userName, age: userAge });
-    setUserName("");
-    setUserAge("");
+    await setUserData({ name: userName, age: userAge });
+    await setUserName("");
+    await setUserAge("");
     setChildCount([]);
   };
 

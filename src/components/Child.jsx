@@ -16,7 +16,7 @@ function Child({ remove, id, isSave }) {
   };
   React.useEffect(() => {
     if (isSave) {
-      const childInfo = { id: id, name: childName, age: childAge };
+      const childInfo = [{ id: id, name: childName, age: childAge }];
       setChildsData(childInfo);
       setChildAge("");
       setChildName("");
