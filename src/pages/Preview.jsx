@@ -3,7 +3,6 @@ import AppContext from "../context";
 
 function Preview() {
   const { userData, childsData } = React.useContext(AppContext);
-  console.log(childsData);
   return (
     <section className="preview">
       <div className="preview__personal">
@@ -21,7 +20,8 @@ function Preview() {
         {childsData.length > 0
           ? childsData.map(
               (child) =>
-                (child.name !== "" && child.age !== "") && (
+                child.name !== "" &&
+                child.age !== "" && (
                   <div className="preview__child" key={child.id}>
                     {child.name}, {child.age} лет
                   </div>
