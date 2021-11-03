@@ -1,0 +1,223 @@
+@import "./variables";
+@import "./components/all";
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+:root {
+  font-size: $fs;
+}
+
+body {
+  font-family: $main-ff;
+  background-color: $bg;
+  font-weight: 400;
+  color: $main-clr;
+}
+
+// ---------------end main styles----------------
+
+.wrapper {
+  max-width: 136.6rem;
+  margin: 0 auto;
+  height: 100vh;
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2.2rem 9.2rem;
+    height: 7.6rem;
+    width: 100%;
+    box-shadow: $shadow;
+    &__logo {
+      width: 9.3rem;
+      height: 2.9rem;
+      object-fit: cover;
+    }
+    &__navigation {
+      margin-right: auto;
+      margin-left: auto;
+      .navigation__list {
+        display: flex;
+        list-style: none;
+        .navigation__item {
+          a {
+            margin-right: 2.4rem;
+            cursor: pointer;
+            font-size: 1.4rem;
+            color: $header-clr;
+            line-height: 2.4rem;
+            transition: 0.2s ease-in-out;
+            text-decoration: none;
+            &:hover {
+              color: darken($header-clr, 20%);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  h2 {
+    font-weight: 500;
+    font-size: 1.6rem;
+    color: $main-clr;
+    margin-bottom: 2rem;
+  }
+
+  .main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    min-height: calc(100vh - 7.6rem - 7.6rem);
+    label {
+      position: relative;
+      width: 100%;
+      &::before {
+        position: absolute;
+        content: attr(aria-label);
+        top: 0.8rem;
+        left: 1.6rem;
+        font-size: 1.3rem;
+        color: $input-clr;
+        z-index: 1;
+      }
+      input {
+        position: relative;
+        width: 100%;
+        height: 5.6rem;
+        padding: 2.6rem 1.6rem 0.6rem;
+        margin-bottom: 1rem;
+        border: $inp-border;
+        border-radius: 0.4rem;
+        font-size: 1.4rem;
+        color: $main-clr;
+        background: $header-bg;
+      }
+    }
+
+    &__personal {
+      display: flex;
+      flex-direction: column;
+      width: 61.6rem;
+      margin: 2.3rem 0 3.1rem;
+    }
+    .children {
+      display: flex;
+      flex-direction: column;
+      width: 61.6rem;
+      &__title {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      &__btn {
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+        padding: 1rem 2rem;
+        margin-bottom: 1.1rem;
+        border: $border;
+        border-radius: 10rem;
+        font-size: 1.4rem;
+        color: $accent-clr;
+        background: none;
+        cursor: pointer;
+        transition: 0.2s ease-in-out;
+        &:active {
+          transform: scale(0.99);
+        }
+        &:hover {
+          border-color: lighten($accent-clr, 20%);
+        }
+        img {
+          position: relative;
+          width: 2.4rem;
+          height: 2.4rem;
+          transition: 0.5s ease-in-out;
+        }
+        &-remove {
+          border: none;
+          padding: 0;
+          margin-bottom: 0;
+          color: $accent-clr;
+          font-size: 1.4rem;
+          line-height: 2.4rem;
+          background: none;
+          cursor: pointer;
+          transition: 0.2s ease-in-out;
+          &:hover {
+            color: darken($accent-clr, 5%);
+          }
+        }
+        &-save {
+          width: 11.8rem;
+          padding: 1rem 2rem;
+          color: $header-bg;
+          background-color: $accent-clr;
+          border-radius: 10rem;
+          border: none;
+          cursor: pointer;
+          transition: 0.2s ease-in-out;
+          &:hover {
+            background-color: lighten($accent-clr, 10%);
+          }
+          &:active {
+            background-color: darken($accent-clr, 10%);
+          }
+        }
+      }
+      &__item {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        gap: 1.8rem;
+      }
+    }
+  }
+  .preview {
+    width: 61.6rem;
+    min-height: calc(100vh - 7.6rem - 7.6rem);
+    margin: 0 auto;
+    padding-top: 2.3rem;
+    b {
+      color: #111111;
+      font-weight: 700;
+      font-size: 1.6rem;
+    }
+    &__personal {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 6.8rem;
+        margin-bottom: 6rem;
+        font-size: 1.3rem;
+        color: $input-clr;
+    }
+    &__childs {
+      font-size: 1.3rem;
+      color: $input-clr;
+    }
+    &__child {
+      margin-bottom: 2rem;
+      padding: 1rem 2rem;
+      font-weight: 700;
+      font-size: 1.6rem;
+      background-color: #f1f1f1;
+      color: #111111;
+    }
+  }
+  footer {
+    height: 7.6rem;
+    padding: 3rem 0;
+    width: 100%;
+    color: $footer-clr;
+    font-size: 1.3rem;
+    text-align: center;
+  }
+}
