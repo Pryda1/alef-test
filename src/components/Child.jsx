@@ -2,7 +2,7 @@ import React from "react";
 import AppContext from "../context";
 
 function Child({ remove, id, isSave }) {
-  const { setChildsData } = React.useContext(AppContext);
+  const { setChildsData, setIsSave, childsData } = React.useContext(AppContext);
   const [childName, setChildName] = React.useState("");
   const [childAge, setChildAge] = React.useState("");
 
@@ -14,12 +14,19 @@ function Child({ remove, id, isSave }) {
       setChildAge((prev) => (/\d+/.test(Number(value)) ? value : prev));
     }
   };
+
   React.useEffect(() => {
     if (isSave) {
       const childInfo = { id: id, name: childName, age: childAge };
-      setChildsData(prev => [...prev, childInfo]);
-      setChildAge("");
-      setChildName("");
+      if (childsData.length > 0) {
+        childsData.splice(childInfo.id - 1, 1, childInfo);
+        setChildsData(childsData);
+      } else {
+        setChildsData((prev) => [...prev, childInfo]);
+        setChildAge("");
+        setChildName("");
+        setIsSave(false);
+      }
     }
   }, [isSave]); // eslint-disable-line react-hooks/exhaustive-deps
 
