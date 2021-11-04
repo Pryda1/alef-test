@@ -98,6 +98,9 @@ body {
         font-size: 1.4rem;
         color: $main-clr;
         background: $header-bg;
+        &:focus {
+          outline: none;
+        }
       }
     }
 
